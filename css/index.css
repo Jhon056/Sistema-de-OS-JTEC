@@ -1,0 +1,146 @@
+/* 1. Remove as margens padrão que o navegador cria nas bordas da tela */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex; /* Permite que o conteúdo ao lado do menu se comporte corretamente */
+    min-height: 100vh; /* Garante que o corpo da página tenha a altura total da tela */
+}
+
+/* 2. Configura o Header como um menu lateral até o final da página */
+.topo {
+    background-color: #343d46; /* Altere para a cor de fundo que você desejar */
+    color: #ffffff;            /* Cor dos textos gerais dentro do header */
+    width: 250px;              /* Largura fixa do seu menu lateral */
+    min-height: 100vh;         /* Faz o background ir exatamente até o final da página */
+    padding: 20px;             /* Espaçamento interno para os itens não colarem nas bordas */
+    
+    /* Mantém o alinhamento que fizemos antes */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 3. Ajusta as cores dos links para contrastar com o novo fundo */
+.topo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ecf0f1;            /* Cor dos links (branca/cinza claro) */
+    font-family: Arial, sans-serif;
+    padding: 8px 5px;
+    border-radius: 4px;        /* Deixa os cantos levemente arredondados ao passar o mouse */
+    transition: background 0.2s; /* Efeito suave quando o mouse passa por cima */
+}
+
+/* Opcional: Efeito visual quando passar o mouse por cima do link */
+.topo a:hover {
+    background-color: #34495e; /* Tom ligeiramente mais claro que o fundo */
+    color: #ffffff;
+}
+
+/* Mantém os ícones alinhados perfeitamente na mesma reta */
+.topo a i {
+    width: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+/* Ajusta o título do sistema no topo do menu */
+.title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* -------------------- RODAPÉ -------------------- */
+
+/* No seu arquivo css/index.css */
+
+/* Se o rodapé for ficar no final do menu lateral: */
+.topo {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Isso empurra o rodapé do menu totalmente para a base da tela */
+.topo .rodape-menu {
+    margin-top: auto; 
+    font-size: 12px;
+    opacity: 0.7;
+    text-align: center;
+}
+
+/* -------------------- ÁREA DE CONTEÚDO DA DIREITA -------------------- */
+
+/* Garante que a área da direita ocupe o restante da tela ao lado do menu */
+.conteudo-principal {
+    flex: 1;                     /* Ocupa todo o espaço restante da tela */
+    display: flex;
+    flex-direction: column;      /* Coloca o cabeçalho em cima e o dashboard embaixo */
+    background-color: #f8f9fa;   /* Um fundo cinza bem claro para destacar do menu escuro */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Configura o cabeçalho superior */
+.cabecalho {
+    display: flex;
+    justify-content: flex-end;   /* Alinha todo o conteúdo do cabeçalho para a DIREITA */
+    padding: 15px 30px;          /* Espaçamento interno */
+    background-color: #ffffff;   /* Fundo branco para destacar */
+    border-bottom: 1px solid #e0e0e0; /* Linha sutil divisória */
+}
+
+/* Alinha o Sino e o Texto lado a lado */
+.cabecalho-adm {
+    display: flex;
+    align-items: center;         /* Alinha verticalmente ao centro */
+    gap: 20px;                   /* Espaço entre o sino e o nome Administrador */
+}
+
+/* Estiliza o link do sino */
+.cabecalho-adm a {
+    color: #555555;              /* Cor do sino */
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.cabecalho-adm a:hover {
+    color: #343d46;              /* Muda de cor ao passar o mouse */
+}
+
+/* Remove margens padrão do parágrafo para não quebrar o alinhamento */
+.cabecalho-adm p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* Configura a seção do Dashboard (abaixo do cabeçalho, colado à esquerda) */
+.dashboard {
+    padding: 30px;               /* Espaçamento para o conteúdo respirar */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;     /* Garante o alinhamento total à ESQUERDA */
+}
+
+/* Estiliza os textos do Dashboard */
+.dashboard-info h1 {
+    margin: 0 0 8px 0;           /* Remove margem superior e adiciona espaço embaixo */
+    font-family: Arial, sans-serif;
+    color: #333333;
+    font-size: 28px;
+}
+
+.dashboard-info p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #777777;              /* Cor cinza para o subtítulo */
+    font-size: 14px;
+}
