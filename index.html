@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,49 +11,7 @@
 </head>
 
 <body>
-    <header class="topo">
-        <h1 class="title">
-            <i class="fa-solid fa-wrench"></i>
-            JTEC OS
-        </h1>
-
-        <a href="#">
-            <i class="fa-solid fa-house"></i>
-            Dashboard
-        </a>
-        <a href="#">
-            <i class="fa-regular fa-square-plus"></i>
-            Nova OS</a>
-        <a href="#">
-            <i class="fa-solid fa-list"></i>
-            Ordens de Serviço</a>
-        <a href="#">
-            <i class="fa-solid fa-people-group"></i>
-            Clientes</a>
-        <a href="#">
-            <i class="fa-solid fa-box"></i>
-            Equipamentos</a>
-        <a href="#">
-            <i class="fa-solid fa-money-check-dollar"></i>
-            Financeiro</a>
-        <a href="#">
-            <i class="fa-solid fa-boxes-stacked"></i>
-            Estoque/Peças</a>
-        <a href="#">
-            <i class="fa-regular fa-calendar-days"></i>
-            Agenda</a>
-        <a href="#">
-            <i class="fa-solid fa-clipboard-list"></i>
-            Relatórios</a>
-        <a href="#">
-            <i class="fa-solid fa-gear"></i>
-            Configurações</a>
-
-        <footer class="rodape-menu">
-            <p>&copy; 2026 JTEC-OS - TODOS OS DIREITOS RESERVADOS.</p>
-        </footer>
-
-    </header>
+    <div id="header"></div>
 
     <main class="conteudo-principal">
 
@@ -60,25 +19,276 @@
 
             <section class="cabecalho">
                 <div class="cabecalho-adm">
-                    <a href="">
-                        <i class="fa-solid fa-bell"></i>
-                    </a>
+
+                    <!-- O sino agora fica isolado em uma div própria -->
+                    <div class="sino-container">
+                        <a href="">
+                            <i class="fa-solid fa-bell"></i>
+                        </a>
+                        <span class="badge-notificacao">3</span>
+                    </div>
 
                     <p>Administrador</p>
                 </div>
             </section>
 
+
             <section class="dashboard">
                 <div class="dashboard-info">
                     <h1>Dashboard</h1>
-
                     <p>Visão geral do seu sistema de Ordens de Serviço</p>
                 </div>
-            </section>
+
+                <!-- ADICIONE ESTE BLOCO DOS CARDS AQUI -->
+                <div class="cards-container">
+                    <!-- Card 1: OS Abertas -->
+                    <div class="card">
+                        <div class="card-icon icon-azul">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
+                        <div class="card-dados">
+                            <span>OS Abertas</span>
+                            <h2>12</h2>
+                            <a href="#">Ver todas &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Em Andamento -->
+                    <div class="card">
+                        <div class="card-icon icon-verde">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <div class="card-dados">
+                            <span>Em Andamento</span>
+                            <h2>8</h2>
+                            <a href="#">Ver todas &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Concluídas -->
+                    <div class="card">
+                        <div class="card-icon icon-roxo">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="card-dados">
+                            <span>Concluídas</span>
+                            <h2>25</h2>
+                            <a href="#">Ver todas &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Aguardando Aprovação -->
+                    <div class="card">
+                        <div class="card-icon icon-laranja">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="card-dados">
+                            <span>Aguardando Aprovação</span>
+                            <h2>3</h2>
+                            <a href="#">Ver todas &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Aguardando Faturamento -->
+                    <div class="card">
+                        <div class="card-icon icon-vermelho">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                        </div>
+                        <div class="card-dados">
+                            <span>Aguardando Faturamento</span>
+                            <h2>2</h2>
+                            <a href="#">Ver todas &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ... fechamento da div class="cards-container" anterior ... -->
+        </div>
+
+        <!-- ADICIONE ESTE BLOCO ABAIXO DOS CARDS -->
+        <div class="dashboard-meio">
+
+            <!-- Coluna da Esquerda: Gráfico -->
+            <div class="painel-grafico">
+                <h2>OS por Status</h2>
+                <div class="grafico-conteudo">
+                    <!-- Círculo simulando o gráfico de pizza -->
+                    <div class="grafico-circulo">
+                        <div class="circulo-centro">
+                            <span>Total</span>
+                            <strong>50</strong>
+                        </div>
+                    </div>
+                    <!-- Legendas do gráfico -->
+                    <ul class="grafico-legendas">
+                        <li><span class="ponto azul"></span> Abertas <strong>12</strong></li>
+                        <li><span class="ponto verde"></span> Em andamento <strong>8</strong></li>
+                        <li><span class="ponto roxo"></span> Concluídas <strong>25</strong></li>
+                        <li><span class="ponto laranja"></span> Aguardando aprovação <strong>3</strong></li>
+                        <li><span class="ponto vermelho"></span> Aguardando faturamento <strong>2</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Coluna da Direita: Últimas OS -->
+            <div class="painel-tabela">
+                <div class="tabela-topo">
+                    <h2>Últimas OS</h2>
+                    <a href="#" class="link-ver-todas">Ver todas &rarr;</a>
+                </div>
+
+                <div class="lista-os">
+                    <!-- Item OS 1 -->
+                    <div class="item-os">
+                        <div class="os-info">
+                            <span class="os-numero">#000123</span>
+                            <span class="os-cliente">Cliente Exemplo Ltda</span>
+                        </div>
+                        <span class="badge aberta">Aberta</span>
+                        <span class="os-data">12/04/2025</span>
+                    </div>
+
+                    <!-- Item OS 2 -->
+                    <div class="item-os">
+                        <div class="os-info">
+                            <span class="os-numero">#000122</span>
+                            <span class="os-cliente">João da Silva</span>
+                        </div>
+                        <span class="badge andamento">Em andamento</span>
+                        <span class="os-data">11/04/2025</span>
+                    </div>
+
+                    <!-- Item OS 3 -->
+                    <div class="item-os">
+                        <div class="os-info">
+                            <span class="os-numero">#000121</span>
+                            <span class="os-cliente">Tech Soluções</span>
+                        </div>
+                        <span class="badge concluida">Concluída</span>
+                        <span class="os-data">10/04/2025</span>
+                    </div>
+
+                    <!-- Item OS 4 -->
+                    <div class="item-os">
+                        <div class="os-info">
+                            <span class="os-numero">#000120</span>
+                            <span class="os-cliente">Maria Oliveira</span>
+                        </div>
+                        <span class="badge aprovacao">Aguardando aprovação</span>
+                        <span class="os-data">09/04/2025</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ... fechamento da div class="dashboard-meio" anterior ... -->
+        </div>
+
+        <!-- ADICIONE ESTE BLOCO DA PARTE DE BAIXO -->
+        <div class="dashboard-baixo">
+
+            <!-- Coluna da Esquerda: Próximas OS (Agenda) -->
+            <div class="painel-agenda">
+                <div class="agenda-topo">
+                    <h2>Próximas OS (Agenda)</h2>
+                    <a href="#" class="link-ver-agenda">Ver agenda &rarr;</a>
+                </div>
+
+                <div class="lista-agenda">
+                    <!-- Compromisso 1 -->
+                    <div class="item-agenda">
+                        <span class="agenda-os">#000124</span>
+                        <div class="agenda-detalhes">
+                            <strong class="agenda-cliente">Carlos Souza</strong>
+                            <span class="agenda-aparelho">Notebook Dell</span>
+                        </div>
+                        <div class="agenda-tempo">
+                            <span><i class="fa-regular fa-calendar"></i> 14/04/2025</span>
+                            <span><i class="fa-regular fa-clock"></i> 09:00</span>
+                        </div>
+                        <span class="badge andamento">Em andamento</span>
+                    </div>
+
+                    <!-- Compromisso 2 -->
+                    <div class="item-agenda">
+                        <span class="agenda-os">#000125</span>
+                        <div class="agenda-detalhes">
+                            <strong class="agenda-cliente">Ana Paula</strong>
+                            <span class="agenda-aparelho">Impressora HP</span>
+                        </div>
+                        <div class="agenda-tempo">
+                            <span><i class="fa-regular fa-calendar"></i> 14/04/2025</span>
+                            <span><i class="fa-regular fa-clock"></i> 10:30</span>
+                        </div>
+                        <span class="badge aberta">Aberta</span>
+                    </div>
+
+                    <!-- Compromisso 3 -->
+                    <div class="item-agenda">
+                        <span class="agenda-os">#000126</span>
+                        <div class="agenda-detalhes">
+                            <strong class="agenda-cliente">Loja Central</strong>
+                            <span class="agenda-aparelho">Computador</span>
+                        </div>
+                        <div class="agenda-tempo">
+                            <span><i class="fa-regular fa-calendar"></i> 14/04/2025</span>
+                            <span><i class="fa-regular fa-clock"></i> 14:00</span>
+                        </div>
+                        <span class="badge andamento">Em andamento</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna da Direita: Atalhos rápidos -->
+            <div class="painel-atalhos">
+                <h2>Atalhos</h2>
+                <div class="grade-atalhos">
+                    <a href="#" class="bota-atalho">
+                        <i class="fa-solid fa-plus-square icon-blue"></i>
+                        <span>Nova OS</span>
+                    </a>
+                    <a href="#" class="bota-atalho">
+                        <i class="fa-solid fa-user-friends icon-blue"></i>
+                        <span>Clientes</span>
+                    </a>
+                    <a href="#" class="bota-atalho">
+                        <i class="fa-solid fa-screwdriver-wrench icon-blue"></i>
+                        <span>Equipamentos</span>
+                    </a>
+                    <a href="#" class="bota-atalho">
+                        <i class="fa-solid fa-boxes-stacked icon-gold"></i>
+                        <span>Estoque/Peças</span>
+                    </a>
+                    <a href="#" class="bota-atalho">
+                        <i class="fa-solid fa-money-check-dollar icon-green"></i>
+                        <span>Financeiro</span>
+                    </a>
+                    <a href="#" class="bota-atalho">
+                        <i class="fa-solid fa-chart-line icon-blue"></i>
+                        <span>Relatórios</span>
+                    </a>
+                    <a href="#" class="bota-atalho item-full">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        </section> <!-- Fechamento da section dashboard -->
+
+
+        </section>
+
+
+        </section>
+
         </div>
 
     </main>
 
+    <script src="js/include.js"></script>
 </body>
 
 </html>

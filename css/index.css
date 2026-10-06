@@ -3,41 +3,71 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display: flex; /* Permite que o conteúdo ao lado do menu se comporte corretamente */
-    min-height: 100vh; /* Garante que o corpo da página tenha a altura total da tela */
+    display: flex;
+    /* Permite que o conteúdo ao lado do menu se comporte corretamente */
+    min-height: 100vh;
+    /* Garante que o corpo da página tenha a altura total da tela */
 }
 
 /* 2. Configura o Header como um menu lateral até o final da página */
 .topo {
-    background-color: #343d46; /* Altere para a cor de fundo que você desejar */
-    color: #ffffff;            /* Cor dos textos gerais dentro do header */
-    width: 250px;              /* Largura fixa do seu menu lateral */
-    min-height: 100vh;         /* Faz o background ir exatamente até o final da página */
-    padding: 20px;             /* Espaçamento interno para os itens não colarem nas bordas */
-    
+    background-color: #343d46;
+    /* Altere para a cor de fundo que você desejar */
+    color: #ffffff;
+    /* Cor dos textos gerais dentro do header */
+    width: 250px;
+    /* Largura fixa do seu menu lateral */
+    height: 100vh;
+    /* Alterado para height fixo da altura da tela */
+    padding: 20px;
+    /* Espaçamento interno para os itens não colarem nas bordas */
+    box-sizing: border-box; 
+    /* Garante que o padding não aumente o tamanho do menu */
+
     /* Mantém o alinhamento que fizemos antes */
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    /* TRAVA O HEADER NA TELA AO ROLAR */
+    position: fixed;           /* Faz o menu flutuar fixo na página */
+    top: 0;                    /* Cola no topo do navegador */
+    left: 0;                   /* Cola na lateral esquerda */
+    z-index: 1000;             /* Impede que outros elementos passem por cima dele */
 }
+
 
 /* 3. Ajusta as cores dos links para contrastar com o novo fundo */
 .topo a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #ecf0f1;            /* Cor dos links (branca/cinza claro) */
+    color: #ecf0f1;
+    /* Cor dos links (branca/cinza claro) */
     font-family: Arial, sans-serif;
     padding: 8px 5px;
-    border-radius: 4px;        /* Deixa os cantos levemente arredondados ao passar o mouse */
-    transition: background 0.2s; /* Efeito suave quando o mouse passa por cima */
+    border-radius: 4px;
+    /* Deixa os cantos levemente arredondados ao passar o mouse */
+    transition: background 0.2s;
+    /* Efeito suave quando o mouse passa por cima */
 }
 
 /* Opcional: Efeito visual quando passar o mouse por cima do link */
 .topo a:hover {
-    background-color: #34495e; /* Tom ligeiramente mais claro que o fundo */
+    background-color: #34495e;
+    /* Tom ligeiramente mais claro que o fundo */
     color: #ffffff;
 }
+
+/* NOVO: Estilo da aba ativa (onde o usuário está navegando) */
+.topo a.active {
+    background-color: #1c2227; /* Tom bem mais escuro que o fundo do seu menu */
+    color: #ffffff;            /* Mantém o texto totalmente branco */
+    font-weight: bold;         /* Deixa o texto em negrito para destacar */
+    border-left: 4px solid #1a73e8; /* Barrinha azul estilizada na esquerda igual ao modelo */
+    border-radius: 0 4px 4px 0;    /* Ajusta o arredondamento por causa da barra azul */
+}
+
 
 /* Mantém os ícones alinhados perfeitamente na mesma reta */
 .topo a i {
@@ -68,7 +98,7 @@ body {
 
 /* Isso empurra o rodapé do menu totalmente para a base da tela */
 .topo .rodape-menu {
-    margin-top: auto; 
+    margin-top: auto;
     font-size: 12px;
     opacity: 0.7;
     text-align: center;
@@ -78,40 +108,53 @@ body {
 
 /* Garante que a área da direita ocupe o restante da tela ao lado do menu */
 .conteudo-principal {
-    flex: 1;                     /* Ocupa todo o espaço restante da tela */
+    flex: 1;
+    /* Ocupa todo o espaço restante da tela */
     display: flex;
-    flex-direction: column;      /* Coloca o cabeçalho em cima e o dashboard embaixo */
-    background-color: #f8f9fa;   /* Um fundo cinza bem claro para destacar do menu escuro */
+    flex-direction: column;
+    /* Coloca o cabeçalho em cima e o dashboard embaixo */
+    background-color: #f8f9fa;
+    /* Um fundo cinza bem claro para destacar do menu escuro */
     min-height: 100vh;
+    margin-left: 250px;       /* Empurra todo o conteúdo para o lado do menu fixo */
+    width: calc(100% - 250px);/* Garante que a área da direita ocupe apenas o espaço que sobrou */
     box-sizing: border-box;
 }
 
 /* Configura o cabeçalho superior */
 .cabecalho {
     display: flex;
-    justify-content: flex-end;   /* Alinha todo o conteúdo do cabeçalho para a DIREITA */
-    padding: 15px 30px;          /* Espaçamento interno */
-    background-color: #ffffff;   /* Fundo branco para destacar */
-    border-bottom: 1px solid #e0e0e0; /* Linha sutil divisória */
+    justify-content: flex-end;
+    /* Alinha todo o conteúdo do cabeçalho para a DIREITA */
+    padding: 15px 30px;
+    /* Espaçamento interno */
+    background-color: #ffffff;
+    /* Fundo branco para destacar */
+    border-bottom: 1px solid #e0e0e0;
+    /* Linha sutil divisória */
 }
 
 /* Alinha o Sino e o Texto lado a lado */
 .cabecalho-adm {
     display: flex;
-    align-items: center;         /* Alinha verticalmente ao centro */
-    gap: 20px;                   /* Espaço entre o sino e o nome Administrador */
+    align-items: center;
+    /* Alinha verticalmente ao centro */
+    gap: 20px;
+    /* Espaço entre o sino e o nome Administrador */
 }
 
 /* Estiliza o link do sino */
 .cabecalho-adm a {
-    color: #555555;              /* Cor do sino */
+    color: #555555;
+    /* Cor do sino */
     font-size: 18px;
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .cabecalho-adm a:hover {
-    color: #343d46;              /* Muda de cor ao passar o mouse */
+    color: #343d46;
+    /* Muda de cor ao passar o mouse */
 }
 
 /* Remove margens padrão do parágrafo para não quebrar o alinhamento */
@@ -122,17 +165,62 @@ body {
     color: #333333;
 }
 
+/* -------------------- NOTIFICAÇÕES (SINO CORRIGIDO) -------------------- */
+
+/* A div do sino se torna o ponto de referência exato para a bolinha */
+.cabecalho-adm .sino-container {
+    position: relative;          
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;                 /* Limita a largura apenas ao tamanho do ícone */
+    height: 24px;                /* Limita a altura apenas ao tamanho do ícone */
+}
+
+/* Estiliza o ícone dentro do contêiner */
+.cabecalho-adm .sino-container a {
+    color: #555555;
+    font-size: 18px;
+    text-decoration: none;
+    line-height: 1;
+}
+
+/* Posiciona a bolinha perfeitamente colada no canto do sino */
+.cabecalho-adm .badge-notificacao {
+    position: absolute;
+    top: -2px;                  /* Ajusta a altura da bolinha no topo do sino */
+    right: -2px;                /* Cola a bolinha na lateral direita do sino */
+    background-color: #e53935;  
+    color: #ffffff;             
+    font-family: Arial, sans-serif;
+    font-size: 9px;            
+    font-weight: bold;
+    width: 14px;                
+    height: 14px;               
+    border-radius: 50%;         
+    display: flex;
+    align-items: center;        
+    justify-content: center;     
+    border: 2px solid #ffffff;  /* Bordinha branca idêntica ao modelo */
+    pointer-events: none;       
+}
+
+
+
 /* Configura a seção do Dashboard (abaixo do cabeçalho, colado à esquerda) */
 .dashboard {
-    padding: 30px;               /* Espaçamento para o conteúdo respirar */
+    padding: 30px;
+    /* Espaçamento para o conteúdo respirar */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;     /* Garante o alinhamento total à ESQUERDA */
+    align-items: flex-start;
+    /* Garante o alinhamento total à ESQUERDA */
 }
 
 /* Estiliza os textos do Dashboard */
 .dashboard-info h1 {
-    margin: 0 0 8px 0;           /* Remove margem superior e adiciona espaço embaixo */
+    margin: 0 0 8px 0;
+    /* Remove margem superior e adiciona espaço embaixo */
     font-family: Arial, sans-serif;
     color: #333333;
     font-size: 28px;
@@ -141,6 +229,498 @@ body {
 .dashboard-info p {
     margin: 0;
     font-family: Arial, sans-serif;
-    color: #777777;              /* Cor cinza para o subtítulo */
+    color: #777777;
+    /* Cor cinza para o subtítulo */
     font-size: 14px;
+}
+
+/*----------------- CARDS ----------------- */
+
+/* Container que alinha os 5 cards lado a lado */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    margin-top: 25px;
+    box-sizing: border-box;
+}
+
+/* Estilo individual de cada Card */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    /* Faz todos os cards terem exatamente o mesmo tamanho */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    /* Sombra bem suave */
+    border: 1px solid #f0f0f0;
+}
+
+/* Caixa do Ícone dentro do Card */
+.card-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* Cores de fundo e dos ícones baseadas no modelo */
+.icon-azul {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+}
+
+.icon-verde {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+
+.icon-roxo {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+}
+
+.icon-laranja {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.icon-vermelho {
+    background-color: #fce8e6;
+    color: #c5221f;
+}
+
+/* Textos e links internos do Card */
+.card-dados {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+.card-dados span {
+    font-size: 12px;
+    color: #70757a;
+    font-weight: 500;
+}
+
+.card-dados h2 {
+    margin: 4px 0;
+    font-size: 22px;
+    color: #202124;
+}
+
+.card-dados a {
+    font-size: 11px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card-dados a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- PARTE DO GRÁFICO E ÚLTIMAS OS ---------------- */
+
+/* Container que divide a linha do meio em 2 colunas */
+.dashboard-meio {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-top: 25px;
+    box-sizing: border-box;
+}
+
+/* Painéis Base (Compartilham o mesmo estilo de caixa) */
+.painel-grafico,
+.painel-tabela {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.painel-grafico {
+    flex: 1;
+}
+
+/* Ocupa 40% aproximadamente */
+.painel-tabela {
+    flex: 1.5;
+}
+
+/* Ocupa um pouco mais de espaço na tela */
+
+.painel-grafico h2,
+.tabela-topo h2 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #202124;
+}
+
+/* ESTILIZAÇÃO DO GRÁFICO */
+.grafico-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+/* Círculo simulado com bordas coloridas divididas */
+.grafico-circulo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: conic-gradient(#1a73e8 0% 24%,
+            #137333 24% 40%,
+            #7c3aed 40% 90%,
+            #d97706 90% 96%,
+            #c5221f 96% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circulo-centro {
+    width: 90px;
+    height: 90px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.circulo-centro span {
+    font-size: 11px;
+    color: #70757a;
+}
+
+.circulo-centro strong {
+    font-size: 22px;
+    color: #202124;
+}
+
+/* Legendas do Gráfico */
+.grafico-legendas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grafico-legendas li {
+    font-size: 13px;
+    color: #5f6368;
+    display: flex;
+    align-items: center;
+    width: 220px;
+}
+
+.grafico-legendas li strong {
+    margin-left: auto;
+    /* Empurra o número para o fim da linha */
+    color: #202124;
+}
+
+.ponto {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* Cores das bolinhas da legenda */
+.ponto.azul {
+    background-color: #1a73e8;
+}
+
+.ponto.verde {
+    background-color: #137333;
+}
+
+.ponto.roxo {
+    background-color: #7c3aed;
+}
+
+.ponto.laranja {
+    background-color: #d97706;
+}
+
+.ponto.vermelho {
+    background-color: #c5221f;
+}
+
+/* ESTILIZAÇÃO DA LISTA DE ÚLTIMAS OS */
+.tabela-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-ver-todas {
+    font-size: 13px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.lista-os {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-os {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.item-os:last-child {
+    border: none;
+}
+
+.os-info {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+}
+
+.os-numero {
+    font-weight: bold;
+    font-size: 13px;
+    color: #202124;
+}
+
+.os-cliente {
+    font-size: 12px;
+    color: #70757a;
+    margin-top: 2px;
+}
+
+.os-data {
+    font-size: 12px;
+    color: #70757a;
+}
+
+/* Etiquetas de Status (Badges) */
+.badge {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-align: center;
+    width: 120px;
+}
+
+.badge.aberta {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+}
+
+.badge.andamento {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+
+.badge.concluida {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+}
+
+.badge.aprovacao {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+
+/* --------------- PARTE FINAL ONDE TEM AGENDA E ATALHOS ------------------ */
+
+/* Container inferior */
+.dashboard-baixo {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    /* Espaço de segurança no fim da página */
+    box-sizing: border-box;
+}
+
+/* Base dos painéis inferiores */
+.painel-agenda,
+.painel-atalhos {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.painel-agenda {
+    flex: 1.5;
+}
+
+/* Segue o alinhamento da tabela de cima */
+.painel-atalhos {
+    flex: 1;
+}
+
+/* Segue o alinhamento do gráfico */
+
+.painel-agenda h2,
+.painel-atalhos h2 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #202124;
+}
+
+/* AGENDA */
+.agenda-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-ver-agenda {
+    font-size: 13px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.lista-agenda {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-agenda {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.item-agenda:last-child {
+    border: none;
+}
+
+.agenda-os {
+    font-size: 12px;
+    color: #70757a;
+    font-weight: bold;
+}
+
+.agenda-detalhes {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+.agenda-cliente {
+    font-size: 14px;
+    color: #202124;
+}
+
+.agenda-aparelho {
+    font-size: 12px;
+    color: #70757a;
+}
+
+.agenda-tempo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 12px;
+    color: #5f6368;
+}
+
+.agenda-tempo i {
+    width: 14px;
+    margin-right: 4px;
+    color: #70757a;
+}
+
+/* GRADE DE ATALHOS */
+.grade-atalhos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Divide em 3 colunas iguais */
+    gap: 12px;
+}
+
+.bota-atalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #e8eaed;
+    border-radius: 8px;
+    padding: 15px 5px;
+    text-decoration: none;
+    color: #3c4043;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.bota-atalho:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.bota-atalho i {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.bota-atalho span {
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Cores específicas dos ícones nos atalhos para bater com a foto */
+.icon-blue {
+    color: #1a73e8;
+}
+
+.icon-gold {
+    color: #d97706;
+}
+
+.icon-green {
+    color: #137333;
+}
+
+/* Atalho de configurações que ocupa a linha inteira de baixo */
+.bota-atalho.item-full {
+    grid-column: span 3;
+    /* Faz o botão esticar pelas 3 colunas */
+    flex-direction: row;
+    gap: 8px;
+    padding: 10px;
+}
+
+.bota-atalho.item-full i {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #5f6368;
 }

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/nova-os.css">
+    <title>JTEC-OS - Nova Ordem de Serviço</title>
+</head>
+
+<body>
+    <!-- Barra Lateral Fixa (Idêntica, mas mudamos a classe active) -->
+    <header class="topo">
+        <h1 class="title">JTEC OS</h1>
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </a>
+        <a href="nova-os.html" class="active"> <!-- Aba ativa agora é esta -->
+            <i class="fa-regular fa-square-plus"></i>
+            Nova OS
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-list"></i>
+            Ordens de Serviço
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-people-group"></i>
+            Clientes
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-wrench"></i>
+            Equipamentos
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-money-check-dollar"></i>
+            Financeiro
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            Estoque/Peças
+        </a>
+        <a href="#">
+            <i class="fa-regular fa-calendar-days"></i>
+            Agenda
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-clipboard-list"></i>
+            Relatórios
+        </a>
+        <a href="#">
+            <i class="fa-solid fa-gear"></i>
+            Configurações
+        </a>
+        <footer class="rodape-menu">
+            <p>&copy; 2026 JTEC OS</p>
+        </footer>
+    </header>
+
+    <!-- Área de Conteúdo da Direita -->
+    <main class="conteudo-principal">
+        <!-- Cabeçalho Superior -->
+        <section class="cabecalho">
+            <div class="cabecalho-adm">
+                <div class="sino-container">
+                    <a href="">
+                        <i class="fa-solid fa-bell"></i>
+                    </a>
+                    <span class="badge-notificacao">3</span>
+                </div>
+                <p>Administrador</p>
+            </div>
+        </section>
+
+        <!-- Seção do Formulário -->
+        <section class="pagina-formulario">
+            <div class="formulario-topo">
+                <h1>Nova Ordem de Serviço</h1>
+                <p>Preencha os campos abaixo para abrir um novo chamado técnico</p>
+            </div>
+
+            <form class="form-os">
+                <!-- Bloco 1: Dados do Cliente -->
+                <!-- Bloco 1: Dados do Cliente -->
+                <div class="form-bloco">
+                    <h2><i class="fa-solid fa-user"></i> Dados do Cliente</h2>
+                    <div class="form-linha">
+                        <div class="form-grupo w-70">
+                            <label for="cliente">Nome do Cliente *</label>
+                            <input type="text" id="cliente" placeholder="Digite o nome completo ou Razão Social"
+                                required>
+                        </div>
+                        <div class="form-grupo w-30">
+                            <label for="cpf_cnpj">CPF / CNPJ</label>
+                            <input type="text" id="cpf_cnpj" placeholder="000.000.000-00">
+                        </div>
+                    </div>
+                    <div class="form-linha">
+                        <div class="form-grupo w-50">
+                            <label for="telefone">Telefone / WhatsApp *</label>
+                            <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+                        </div>
+                        <div class="form-grupo w-50">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" placeholder="cliente@email.com">
+                        </div>
+                    </div>
+
+                    <!-- ADICIONE ESTA NOVA LINHA AQUI ABAIXO -->
+                    <div class="form-linha">
+                        <div class="form-grupo w-70">
+                            <label for="endereco">Endereço Completo</label>
+                            <input type="text" id="endereco" placeholder="Rua, Avenida, Bairro...">
+                        </div>
+                        <div class="form-grupo w-30">
+                            <label for="numero_end">Nº / Comp.</label>
+                            <input type="text" id="numero_end" placeholder="Ex: 123, Ap 42">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Bloco 2: Dados do Equipamento -->
+                <!-- Bloco 2: Dados do Equipamento -->
+                <div class="form-bloco">
+                    <h2><i class="fa-solid fa-wrench"></i> Detalhes do Equipamento</h2>
+
+                    <!-- Linha 1: Dados básicos do aparelho e Tipo de Serviço (Atualizada para 4 colunas) -->
+                    <div class="form-linha">
+                        <div class="form-grupo w-30">
+                            <label for="equipamento">Equipamento *</label>
+                            <input type="text" id="equipamento" placeholder="Ex: Notebook, Pc Gamer, Console" required>
+                        </div>
+                        <div class="form-grupo w-25">
+                            <label for="marca">Marca / Modelo</label>
+                            <input type="text" id="marca" placeholder="Ex: Aquário, Dell, Playstation 5">
+                        </div>
+                        <div class="form-grupo w-20">
+                            <label for="n_serie">Número de Série</label>
+                            <input type="text" id="n_serie" placeholder="Ex: BR12345X">
+                        </div>
+                        <div class="form-grupo w-25">
+                            <label for="servico_padrao">Serviço Solicitado *</label>
+                            <select id="servico_padrao" required>
+                                <option value="" disabled selected>Selecione o serviço...</option>
+                                <option value="diagnostico">Diagnóstico de Problema</option>
+                                <option value="formatacao_backup">Formatação com Backup</option>
+                                <option value="formatacao_sem_backup">Formatação sem Backup</option>
+                                <option value="limpeza">Limpeza Preventiva</option>
+                                <option value="montagem">Montagem Completa</option>
+                                <option value="remontagem">Remontagem</option>
+                                <option value="substituicao_pecas">Substituição de Peças</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Linha 2: Campo de Condições do Equipamento -->
+                    <div class="form-linha">
+                        <div class="form-grupo w-100">
+                            <label for="input-condicao">Condições do Equipamento (Pressione Enter para
+                                adicionar)</label>
+                            <div class="input-com-botao">
+                                <input type="text" id="input-condicao"
+                                    placeholder="Ex: Riscos na carcaça, Tela riscada, Sem parafusos...">
+                                <button type="button" id="btn-add-condicao">+</button>
+                            </div>
+                            <div id="lista-condicoes" class="container-detalhes-lista"></div>
+                        </div>
+                    </div>
+
+                    <!-- Linha 3: Campo de Componentes do Equipamento -->
+                    <div class="form-linha">
+                        <div class="form-grupo w-100">
+                            <label for="input-acessorio">Componentes do Equipamento (Pressione Enter para
+                                adicionar)</label>
+                            <div class="input-com-botao">
+                                <input type="text" id="input-acessorio"
+                                    placeholder="Ex: Placa mãe, Memória Ram, SSD, Fonte...">
+                                <button type="button" id="btn-add-acessorio">+</button>
+                            </div>
+                            <div id="lista-acessorios" class="container-detalhes-lista"></div>
+                        </div>
+                    </div>
+
+                    <!-- Linha 4: Defeito Relatado Dinâmico -->
+                    <div class="form-linha">
+                        <div class="form-grupo w-100">
+                            <label for="input-defeito">Defeito Relatado / Sintomas * (Pressione Enter para
+                                adicionar)</label>
+                            <div class="input-com-botao">
+                                <input type="text" id="input-defeito"
+                                    placeholder="Ex: Não liga, Travando na tela inicial, Sem som...">
+                                <button type="button" id="btn-add-defeito">+</button>
+                            </div>
+                            <div id="lista-defeitos" class="container-detalhes-lista"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloco 3: Informações Técnicas e Valores -->
+                <!-- Bloco 3: Informações Técnicas e Valores (Profissional) -->
+                <div class="form-bloco">
+                    <h2><i class="fa-solid fa-list-check"></i> Triagem & Controle de Serviço</h2>
+
+                    <div class="form-linha">
+                        <div class="form-grupo w-50">
+                            <label for="tecnico">Técnico Responsável</label>
+                            <select id="tecnico">
+                                <option value="">Aguardando atribuição...</option>
+                                <option value="1">Administrador</option>
+                                <option value="2">Técnico Auxiliar 01</option>
+                                <option value="3">Técnico Auxiliar 02</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo w-50">
+                            <label for="status_inicial">Status Inicial do Chamado *</label>
+                            <select id="status_inicial" required>
+                                <option value="aberta">Aberta (Nova)</option>
+                                <option value="andamento">Em andamento</option>
+                                <option value="orcamento">Aguardando Aprovação de Orçamento</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-linha">
+                        <div class="form-grupo w-33">
+                            <label for="prioridade">Nível de Prioridade *</label>
+                            <select id="prioridade" required>
+                                <option value="normal" selected>Normal</option>
+                                <option value="baixa">Baixa (Retrabalho / Retorno)</option>
+                                <option value="alta">Alta</option>
+                                <option value="urgente">Urgente (Contrato / Parada Crítica)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo w-33">
+                            <label for="tipo_servico">Tipo de Atendimento *</label>
+                            <select id="tipo_servico" required>
+                                <option value="particular">Particular (Orçamento)</option>
+                                <option value="garantia">Garantia de Serviço</option>
+                                <option value="contrato">Contrato Corporativo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo w-33">
+                            <label for="previsao_entrega">Previsão de Entrega</label>
+                            <input type="date" id="previsao_entrega">
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <script src="../js/nova-os.js"></script>
+</body>
+
+</html>
